@@ -6,5 +6,4 @@ urlpatterns = [
     path('car/<int:pk>',views.CarRetrieveUpdateDestroy.as_view()),
     path('car/expense/<int:pk>',views.ExpenseList.as_view()),
     path('car/sell/<int:pk>',views.SellList.as_view()),
-    # path('login', views.login),
 ]

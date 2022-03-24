@@ -1,0 +1,7 @@
+Django==4.0.3
+djangorestframework==3.13.1
+psycopg2==2.9.2
+pyinstaller==4.3
+pylint==2.7.4
+sqlparse==0.4.1
+

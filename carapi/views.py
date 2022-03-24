@@ -12,20 +12,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-# @api_view(['POST'])
-# @csrf_exempt
-# def login(request):
-#     if request.method == 'POST':
-#         data = request.data
-#         user = authenticate(request,username=data['username'], password=data['password'])
-#         if user is None:
-#             return JsonResponse({'error':'Username or Password wrong'},status=401)
-#         else:
-#             try:
-#                 token = Token.objects.get(user=user)
-#             except:
-#                 token = Token.objects.create(user=user)
-#             return JsonResponse({'token':str(token)},status=200)
 
 class CarList(generics.ListCreateAPIView):
     serializer_class = CarSerializer

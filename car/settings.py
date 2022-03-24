@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+(in^-@s#-@q8fqm!-b3#bm1kjeiz7e1hnb)i@(-pz72rgwrv#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://vehicledealer.herokuapp.com/']
 
 
 # Application definition
@@ -49,6 +49,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,10 +85,21 @@ WSGI_APPLICATION = 'car.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'db3i3c9v5chijg',
+    'USER': 'bdptwnppeyvhyh',
+    'PASSWORD': '5298e1b93624a85470546f24309d62646622383ae23d5f52589d26d9bf278729',
+    'HOST': 'ec2-52-201-124-168.compute-1.amazonaws.com',
+    'PORT': '5432',
     }
 }
 
@@ -130,9 +142,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#LOGIN_URL = '/login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('You are on production server')
