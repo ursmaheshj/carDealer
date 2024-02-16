@@ -1,7 +1,7 @@
 Django==4.0.8
 djangorestframework==3.13.1
 psycopg2==2.9.2
-pyinstaller==4.3
+pyinstaller==5.13.1
 pylint==2.7.4
 sqlparse==0.4.2
 gunicorn==20.1.0
